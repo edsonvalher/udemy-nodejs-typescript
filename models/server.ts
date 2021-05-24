@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import usuarioRoutes from "../routes/usuario";
 
 import cors from "cors";
+import db from "../db/connections";
 
 class Server {
   private app: Application;
@@ -13,6 +14,15 @@ class Server {
 
   routes() {
     this.app.use(this.apiPaths.usuarios, usuarioRoutes);
+  }
+
+  async dbConnection() {
+    try {
+      await db.authenticate();
+      console.log("database online");
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   middleWares() {
@@ -32,6 +42,8 @@ class Server {
     this.middleWares();
     //rutas
     this.routes();
+    //db
+    this.dbConnection();
   }
 
   listen() {
