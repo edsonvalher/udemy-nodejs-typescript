@@ -4,6 +4,7 @@ import {
   getUsuarios,
   posttUsuario,
   puttUsuario,
+  deleteUsuarioLogico,
 } from "./../controllers/usuarios";
 import { Router } from "express";
 
@@ -13,6 +14,6 @@ router.get("/", getUsuarios);
 router.get("/:id", getUsuario);
 router.post("/", posttUsuario);
 router.put("/:id", puttUsuario);
-router.delete("/:id", deletetUsuario);
+router.delete("/:id", deleteUsuarioLogico);
 
 export default router;

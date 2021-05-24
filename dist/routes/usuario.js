@@ -7,5 +7,5 @@ router.get("/", usuarios_1.getUsuarios);
 router.get("/:id", usuarios_1.getUsuario);
 router.post("/", usuarios_1.posttUsuario);
 router.put("/:id", usuarios_1.puttUsuario);
-router.delete("/:id", usuarios_1.deletetUsuario);
+router.delete("/:id", usuarios_1.deleteUsuarioLogico);
 exports.default = router;
